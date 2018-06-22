@@ -1,5 +1,6 @@
 package com.urancompany.model;
 
+
 public class Exhibit {
     private String title;
     private String[] images;
