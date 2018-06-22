@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Exhibitions</string>
+
+    <string name="title_model">Model</string>
 </resources>
