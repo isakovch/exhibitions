@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion versions.compileSdk
+
+    defaultConfig {
+        applicationId "com.urancompany.exhibitions"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "BASE_URL", "\"${base_url}\""
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation libs.appCompat
+    implementation libs.design
+    implementation libs.support
+    implementation libs.constraint
+
+    implementation libs.dagger
+    annotationProcessor libs.daggerProcessor
+
+    implementation libs.butterKnife
+    annotationProcessor libs.butterKnifeCompiler
+
+    testImplementation libs.junit
+    androidTestImplementation libs.runner
+    androidTestImplementation libs.espressoCore
+
+    implementation project(':model')
+    implementation project(':loader')
+}
